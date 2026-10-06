@@ -28,7 +28,8 @@ const title = `${PROFILE.name}, ${PROFILE.role}`;
 const description = `${PROFILE.roles.join(" · ")}. React.js, Node.js, MongoDB, Claude API, Gemini AI and LangChain RAG pipelines. Based in ${PROFILE.location}.`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  // Netlify sets URL (the site's primary address) during builds
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? process.env.URL ?? "http://localhost:3000"),
   title,
   description,
   authors: [{ name: PROFILE.name, url: PROFILE.github }],
